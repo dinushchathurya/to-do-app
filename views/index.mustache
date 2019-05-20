@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width , initial-scale=1.0">
+  <meta htt-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Stuff I need to do</h1>
+  <form action="/todos" method="post">
+    <input type="text" name="description">
+    <button type="submit">Add</button>
+  </form>
+  <ul>
+  {{#todos}}
+    <li>
+      <form action="/todos/{{_id}}/completed" method="post">
+        {{description}} - {{done}}<button type="submit">Done</button>
+      </form>
+    </li>
+  {{/todos}}
+</ul>
+<h3>Done</h3>
+<ul>
+  {{#doneTodos}}
+  <li>
+    <form action="/todos/{{_id}}/completed" method="post">
+      {{description}} - {{done}}<button type="submit">Whoops</button>
+    </form>
+  </li>
+{{/todos}}
+</ul>
+</body>
+</html>
